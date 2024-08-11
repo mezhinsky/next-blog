@@ -13,7 +13,7 @@ export default function ArticleItem({ item }: { item: IArticle }) {
 
   return (
     <div className="w-full mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <div className="w-full h-96 relative">
+      <div className="w-full h-[800px] relative">
         <Image
           src={`${API}${item.attributes.cover.data.attributes.url}`}
           placeholder="blur"

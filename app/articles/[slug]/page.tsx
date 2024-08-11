@@ -54,7 +54,7 @@ export default async function Article({
 
     Article = (
       <article>
-        <div className="relative w-full h-96 mb-8">
+        <div className="relative w-full h-[800px] mb-8">
           <Image
             src={`${API}${article.attributes.cover.data.attributes.url}`}
             alt={article.attributes.cover.data.attributes.caption}
