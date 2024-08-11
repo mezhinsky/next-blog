@@ -16,21 +16,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Architectural decisions
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Next.js 14
+- Tailwind
+- Strapi v5
 
-## Learn More
+## My additions
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Articles page uses params to get page number and page size (good for SEO, and Humans)
+- Articles uses slug as key field thats provide direct URL to post and its wrapped for Title field, good for SEO also
+- Article text uses remark to render markdown: looks awesome plus Rich Editor on strapi and @tailwindcss/typography gives amaizng looking page
+- Articles page, Article detail page uses server components for SEO
+- Comments form on Article detail page uses server actions and client component
+- When new comment is posting server action uses revalidating mechanism that drops article collection, so for user it looks like Article get new list of comment immidiatly! And thats with zero code for updating source!
+- Mobile first technique provide responsive design
+- HTML5 markup includes Article, Section, Main, Header, Footer etc Tags for better SEO
+- .env file for config API endpoint
+- robots.txt and sitemap.xml generates with scripts - so we can config it to cover all posts and static pages
