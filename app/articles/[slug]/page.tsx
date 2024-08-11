@@ -50,11 +50,13 @@ export default async function Article({
 
     const date = new Date(article.attributes.publishedAt);
 
+    const API = process.env.NEXT_PUBLIC_API;
+
     Article = (
       <article>
         <div className="relative w-full h-96 mb-8">
           <Image
-            src={`http://localhost:1337${article.attributes.cover.data.attributes.url}`}
+            src={`${API}${article.attributes.cover.data.attributes.url}`}
             alt={article.attributes.cover.data.attributes.caption}
             layout="fill"
             objectFit="cover"
