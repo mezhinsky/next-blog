@@ -13,7 +13,7 @@ import { IArticleResponse } from "@/interfaces/IArticle";
 import { IComment } from "@/interfaces/IComment";
 import { comment } from "postcss";
 
-const API = `http://localhost:1337/api/articles`;
+const API = `${process.env.NEXT_PUBLIC_API}/api/articles`;
 
 export default async function Article({
   params,

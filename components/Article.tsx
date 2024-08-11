@@ -2,7 +2,7 @@ import { IArticle } from "@/interfaces/IArticle";
 import Image from "next/image";
 import Link from "next/link";
 
-const API = `http://localhost:1337`;
+const API = process.env.NEXT_PUBLIC_API;
 
 export default function ArticleItem({ item }: { item: IArticle }) {
   console.log(

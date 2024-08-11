@@ -3,7 +3,7 @@ import Pagination from "@/components/Pagination";
 
 import { IArticleResponse } from "@/interfaces/IArticle";
 
-const API = `http://localhost:1337/api/articles`;
+const API = `${process.env.NEXT_PUBLIC_API}/api/articles`;
 
 export default async function ArticlesPage({
   searchParams,

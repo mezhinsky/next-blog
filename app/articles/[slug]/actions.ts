@@ -1,6 +1,8 @@
 "use server";
 import { revalidateTag } from "next/cache";
 
+const API = `${process.env.NEXT_PUBLIC_API}/api/comments`;
+
 export async function createComment(postId: string, formData: FormData) {
   const rawFormData = {
     data: {
@@ -13,7 +15,7 @@ export async function createComment(postId: string, formData: FormData) {
   };
 
   try {
-    const res = await fetch(`http://localhost:1337/api/comments`, {
+    const res = await fetch(API, {
       method: "POST",
       body: JSON.stringify(rawFormData),
       headers: {
