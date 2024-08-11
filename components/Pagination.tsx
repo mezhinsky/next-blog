@@ -19,7 +19,7 @@ export default function Pagination({
 
   return (
     <div className="flex items-center justify-center space-x-2 my-4">
-      {pagination.pageCount > 2 && (
+      {pagination.pageCount >= 2 && pagination.page > 1 && (
         <Link
           className="px-3 py-2 bg-gray-200 text-gray-600 rounded-lg hover:bg-gray-300 disabled:opacity-50"
           href={{ pathname: "/articles", query: { page: pagination.page - 1 } }}
@@ -33,11 +33,7 @@ export default function Pagination({
         .map((_, i) => (
           <Link
             key={i}
-            className={
-              i === pagination.page
-                ? `px-3 py-2 bg-gray-200 text-gray-600 rounded-lg hover:bg-gray-300`
-                : `px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600`
-            }
+            className={`px-3 py-2 bg-gray-200 text-gray-600 rounded-lg hover:bg-gray-300`}
             href={{
               pathname: "/articles",
               query: { page: i + 1 },
@@ -52,7 +48,7 @@ export default function Pagination({
       </button> */}
       {/* <span className="px-3 py-2">...</span> */}
 
-      {pagination.pageCount > 1 && (
+      {pagination.pageCount > 1 && pagination.page < pagination.pageCount && (
         <Link
           className="px-3 py-2 bg-gray-200 text-gray-600 rounded-lg hover:bg-gray-300"
           href={{ pathname: "/articles", query: { page: pagination.page + 1 } }}
